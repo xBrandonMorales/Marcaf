@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inicio | MARCAF Carnes Selectas</title>
+    <meta name="description" content="Conoce MARCAF Carnes Selectas, nuestros productos cárnicos, avisos y oportunidades de trabajo.">
+
+    <!-- Diseño principal y estilos de la página de inicio -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <header class="encabezado">
+
+        <a href="index.html" class="logo">
+            <img src="images/Logo.jpg" alt="Logotipo de MARCAF">
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="menuPrincipal">
+            ☰
+        </button>
+
+        <nav class="menu-principal" id="menuPrincipal">
+            <a href="index.html" class="activo">Inicio</a>
+            <a href="pages/productos.html">Productos</a>
+            <a href="pages/avisos.html">Avisos</a>
+            <a href="pages/bolsa-trabajo.html">Bolsa de trabajo</a>
+            <a href="pages/contacto.html">Contacto</a>
+        </nav>
+
+        <!-- Acceso al administrador -->
+        <a href="admin-login.html" class="boton-login">
+            Login
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <!-- PRESENTACIÓN DE LA EMPRESA -->
+        <section class="presentacion">
+
+            <div class="presentacion-contenido">
+
+                <span class="etiqueta">
+                    CALIDAD Y CONFIANZA
+                </span>
+
+                <h1>
+                    Bienvenido a MARCAF
+                </h1>
+
+                <p>
+                    🐔 MARCAF | Carnes Selectas 🥩 Desde 1990
+                    llevamos productos cárnicos de la más alta calidad
+                    y frescura a hogares y negocios de Hidalgo y sus
+                    alrededores. Más de 35 años de confianza y servicio
+                    respaldan tu mesa.
+                </p>
+
+                <a href="pages/productos.html" class="boton-principal">
+                    Ver productos
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+            <div class="presentacion-imagen">
+                <img
+                    src="images/productos/carne-principal.jpg"
+                    alt="Selección de cortes de carne">
+            </div>
+
+        </section>
+
+
+        <!-- PUBLICACIONES RECIENTES -->
+        <section class="seccion-publicaciones">
+
+            <div class="encabezado-seccion">
+
+                <div>
+                    <span class="etiqueta">
+                        NOTICIAS Y NOVEDADES
+                    </span>
+
+                    <h2>Publicaciones recientes</h2>
+                </div>
+
+                <a href="pages/avisos.html" class="boton-ver-todas">
+                    Ver todas
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+            <!-- Publicaciones de ejemplo -->
+            <div class="publicaciones-grid" id="publicacionesGrid">
+
+                <!-- PUBLICACIÓN 1 -->
+                <article class="tarjeta-publicacion">
+
+                    <a href="pages/avisos.html">
+                        <img
+                            src="images/avisos/aviso-1.jpg"
+                            alt="Productos cárnicos de MARCAF"
+                            class="imagen-publicacion"
+                            loading="lazy">
+                    </a>
+
+                    <div class="publicacion-contenido">
+
+                        <span class="etiqueta-publicacion">
+                            Promoción
+                        </span>
+
+                        <p class="fecha-publicacion">
+                            Publicación reciente
+                        </p>
+
+                        <h3>🔥🍗 ¡El sabor que tu negocio necesita!</h3>
+
+                        <p>
+                            ¿Picositas o naturales? 😋🌶️ En MARCAF
+                            tenemos alitas brasileñas para darle más
+                            sabor a tu menú, ideales para restaurantes
+                            y negocios de comida.
+
+                            📲 ¡Cotiza con nosotros y surte tu negocio!
+                            📞 775 238 1756
+                            📍 Av. Jalisco 207, Colonia Rojo Gómez,
+                            Tulancingo, Hidalgo.
+                        </p>
+
+                        <a href="pages/avisos.html" class="enlace-publicacion">
+                            Ver más →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PUBLICACIÓN 2 -->
+                <article class="tarjeta-publicacion">
+
+                    <a href="pages/avisos.html">
+                        <img
+                            src="images/avisos/aviso-2.jpg"
+                            alt="Información y promociones de MARCAF"
+                            class="imagen-publicacion"
+                            loading="lazy">
+                    </a>
+
+                    <div class="publicacion-contenido">
+
+                        <span class="etiqueta-publicacion">
+                            Aviso
+                        </span>
+
+                        <p class="fecha-publicacion">
+                            Publicación reciente
+                        </p>
+
+                        <h3>🍟🎃 ¿Fritas o nada? 👀🔥</h3>
+
+                        <p>
+                            ¡Dale un toque crujiente a tus platillos
+                            con nuestras papas gajo, rectas y onduladas!
+                            😋 Ideales para restaurantes, negocios de
+                            comida y mucho más.
+
+                            📲 ¡Solicita información y cotiza con nosotros!
+                            📞 775 238 1756
+                            📍 Av. Jalisco 207, Colonia Rojo Gómez,
+                            Tulancingo, Hidalgo.
+                        </p>
+
+                        <a href="pages/avisos.html" class="enlace-publicacion">
+                            Ver más →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PUBLICACIÓN 3 -->
+                <article class="tarjeta-publicacion">
+
+                    <a href="pages/avisos.html">
+                        <img
+                            src="images/avisos/aviso-3.jpg"
+                            alt="Receta de carne de cerdo en salsa verde"
+                            class="imagen-publicacion"
+                            loading="lazy">
+                    </a>
+
+                    <div class="publicacion-contenido">
+
+                        <span class="etiqueta-publicacion">
+                            Novedades
+                        </span>
+
+                        <p class="fecha-publicacion">
+                            Publicación reciente
+                        </p>
+
+                        <h3>
+                            ¿Buscas una idea deliciosa para la comida de hoy?
+                        </h3>
+
+                        <p>
+                            Prueba esta rica receta de carne de cerdo
+                            en salsa verde 🌶️😋. ¡Anímate a prepararla
+                            y sorprende a todos con su sabor!
+
+                            👉 Guarda la receta y síguenos para descubrir
+                            más ideas para tus comidas.
+
+                            🥩 En MARCAF encuentras los productos que
+                            necesitas para tus mejores platillos.
+                            📍 Av. Jalisco 207, Colonia Rojo Gómez,
+                            Tulancingo, Hidalgo.
+                            📞 775 135 8023
+                        </p>
+
+                        <a href="pages/productos.html" class="enlace-publicacion">
+                            Ver productos →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         PIE DE PÁGINA - MARCAF
+    =========================================== -->
+
+    <footer class="pie-pagina">
+
+        <div class="footer-contenido">
+
+            <div class="footer-redes">
+
+                <span class="footer-etiqueta">
+                    MARCAF
+                </span>
+
+                <h3>Estamos para servirte</h3>
+
+                <p>
+                    Contáctanos y conoce nuestros productos.
+                    Estamos para atenderte.
+                </p>
+
+                <div class="redes-sociales">
+
+                    <!-- FACEBOOK -->
+                    <a
+                        href="https://www.facebook.com/Capaschh/?locale=es_LA"
+                        class="red-social"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <span class="red-social-icono">f</span>
+                        <span>Facebook</span>
+
+                    </a>
+
+                    <!-- WHATSAPP -->
+                    <a
+                        href="https://wa.me/527752381756"
+                        class="red-social"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <span class="red-social-icono">💬</span>
+                        <span>WhatsApp</span>
+
+                    </a>
+
+                    <!-- TELÉFONO PARA COPIAR -->
+                    <a
+                        href="#"
+                        class="red-social"
+                        id="boton-telefono"
+                        onclick="copiarTelefono(event)">
+
+                        <span class="red-social-icono">☎</span>
+
+                        <span class="red-social-texto">
+                            Teléfono: 775 238 1756
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- DERECHOS RESERVADOS -->
+            <div class="copyright">
+
+                <p>
+                    © <span id="anio-footer"></span>
+                    MARCAF Carnes Selectas.
+                    Todos los derechos reservados.
+                </p>
+
+                <span>
+                    Calidad y confianza desde 1990.
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- AÑO AUTOMÁTICO -->
+    <script>
+        document.getElementById("anio-footer").textContent =
+            new Date().getFullYear();
+    </script>
+
+    <!-- JavaScript principal -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
