@@ -1,8 +1,7 @@
 
 let productos = [];
-
-const SUPABASE_URL = "https://rjlletybgreacibxhxug.supabase.co/rest/v1/";
-const SUPABASE_KEY = "sb_publishable_1e-xFQXonPjjbmsc-2zd7g_BPBLkexv";
+const SUPABASE_URL = "https://rjlletybgreacibxhxug.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqbGxldHliZ3JlYWNpYnhoeHVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMyODA2ODIsImV4cCI6MjEwODg1NjY4Mn0.wFp3s0xtTWUwYy1Ybi96u50935Rfl9gWOleJHn5Fbjg";
 
 const clienteSupabase = window.supabase.createClient(
     SUPABASE_URL,
