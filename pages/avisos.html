@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Avisos y novedades | MARCAF Carnes Selectas</title>
+
+    <meta name="description" content="Consulta los avisos, promociones y novedades de MARCAF Carnes Selectas.">
+    <!-- Tipografía Poppins para el visor de publicaciones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">    
+    <link rel="stylesheet" href="../css/avisos.css">
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <a href="../index.html" class="logo">
+            <img src="../images/Logo.jpg" alt="MARCAF">
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+        <nav class="menu-principal" id="menuPrincipal">
+            <a href="../index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="avisos.html" class="activo">Avisos</a>
+            <a href="bolsa-trabajo.html">Bolsa de trabajo</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <a href="../admin-login.html" class="boton-login">Login</a>
+    </header>
+
+    <!-- PRESENTACIÓN (centrada, sin contenedor interno) -->
+    <main>
+
+        <section class="presentacion">
+
+            <span class="etiqueta-superior">
+                MARCAF CARNES SELECTAS
+            </span>
+
+            <h1>Avisos y novedades</h1>
+
+            <p>
+                Entérate de nuestras promociones, nuevos productos
+                y comunicados importantes.
+            </p>
+
+        </section>
+
+        <!-- PUBLICACIONES -->
+        <section class="seccion-publicaciones">
+            <div class="contenedor">
+
+                <div class="titulo-seccion">
+                    <div>
+                        <span class="subtitulo">MANTENTE INFORMADO</span>
+                        <h2>Últimas publicaciones</h2>
+                    </div>
+                </div>
+
+                <!-- Aquí se cargarán los avisos desde Supabase -->
+                <div id="listaAvisos" class="lista-avisos">
+
+                    <div class="mensaje-cargando">
+                        <span class="indicador-carga"></span>
+                        <p>Cargando avisos...</p>
+                    </div>
+
+                </div>
+
+                <div id="mensajeAvisos" class="mensaje-avisos" hidden>
+                    Por el momento no hay publicaciones disponibles.
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- VISOR DE PUBLICACIÓN (estilo Instagram) -->
+    <dialog class="visor-aviso" id="visorAviso" aria-label="Publicación">
+        <button type="button" class="visor-cerrar" id="cerrarVisor"
+                aria-label="Cerrar">×</button>
+        <div class="visor-contenido" id="visorContenido"></div>
+    </dialog>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie-pagina">
+        <div class="footer-contenido">
+
+            <div class="footer-redes">
+                <span class="footer-etiqueta">Síguenos y contáctanos</span>
+
+                <div class="redes-sociales">
+                    <a href="https://www.facebook.com/marcafcarnesselectas/"
+                       class="red-social"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span class="red-social-icono">f</span>
+                        <span class="red-social-texto">Facebook</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/marcaf_carnes_selectas/"
+                       class="red-social"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span class="red-social-icono">◎</span>
+                        <span class="red-social-texto">Instagram</span>
+                    </a>
+
+                    <a href="https://www.tiktok.com/@marcaf.carnes.sel?is_from_webapp=1&sender_device=pc/"
+                       class="red-social"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span class="red-social-icono">♪</span>
+                        <span class="red-social-texto">TikTok</span>
+                    </a>
+
+                    <a href="https://wa.me/527751358023"
+                       class="red-social"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span class="red-social-icono">☏</span>
+                        <span class="red-social-texto">WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <p>
+                © <span id="anio-footer"></span> MARCAF Carnes Selectas.
+                Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/avisos.js"></script>
+
+    <script>
+        document.getElementById("anio-footer").textContent =
+            new Date().getFullYear();
+    </script>
+
+    <!-- Encabezado que se esconde al hacer scroll -->
+    <script src="../js/encabezado.js"></script>
+
+</body>
+</html>

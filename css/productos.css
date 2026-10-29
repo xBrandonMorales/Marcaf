@@ -4,7 +4,11 @@
    ========================================= */
 
 body {
-    background: #202020;
+    background-image: url("../images/Fondos-01.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .catalogo {
@@ -55,6 +59,18 @@ body {
     box-sizing: border-box;
 }
 
+
+.etiqueta-superior {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: var(--color-vino);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
 
 /* Buscador arriba a la derecha del encabezado */
 .buscador-productos {
@@ -231,7 +247,7 @@ body {
     padding: 8px 15px;
 
     color: #fff;
-    background: #ed454d;
+    background: #641317;
     border-radius: 20px;
 
     font-size: 12px;
@@ -323,12 +339,18 @@ body {
 .detalle-encabezado h2,
 .seccion-recetas h3 {
     color: #970019;
+    text-align: center;
+}
+
+.seccion-recetas > p {
+    text-align: center;
 }
 
 .detalle-encabezado p {
     margin-top: 12px;
-    color: #686868;
+    color: #1c1818;
     line-height: 1.7;
+    
 }
 
 /* =========================================
@@ -359,18 +381,18 @@ body {
 }
 
 .tarjeta-receta:hover {
-    background: #ffeded;
+    background: #272727;
     transform: translateY(-3px);
 }
 
 .tarjeta-receta strong {
     display: block;
     margin-bottom: 6px;
-    color: #970019;
+    color: #9c3d4d;
 }
 
 .tarjeta-receta span {
-    color: #686868;
+    color: #615e5e;
     font-size: 13px;
 }
 
@@ -387,6 +409,7 @@ body {
 
 .contenido-receta h3 {
     margin-top: 18px;
+    color: #000000;
 }
 
 .contenido-receta li {

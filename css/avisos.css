@@ -1,0 +1,1188 @@
+/* ==========================================
+   1. CONFIGURACIÓN GENERAL
+   Estilo MARCAF Carnes Selectas
+========================================== */
+
+:root {
+    --color-rojo: #ed454d;
+    --color-rojo-hover: #cf2634;
+    --color-vino: #970019;
+    --color-texto: #202020;
+    --color-gris: #686868;
+    --color-fondo: #ffffff;
+    --color-fondo-suave: #f5f5f5;
+    --color-borde: #e7e7e7;
+    --color-dorado: #D4AF37;
+
+    --sombra: 0 8px 25px rgba(0, 0, 0, 0.05);
+    --radio: 16px;
+    --ancho-maximo: 1400px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--color-texto);
+    background: var(--color-fondo);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* ==========================================
+   2. ENCABEZADO
+========================================== */
+
+.encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    min-height: 85px;
+    padding: 12px 5%;
+
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid var(--color-borde);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+
+/* LOGOTIPO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    color: var(--color-vino);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.logo-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.logo-principal {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.logo-secundario {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+/* MENÚ PRINCIPAL */
+
+.navegacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.navegacion a {
+    display: inline-block;
+    padding: 9px 16px;
+
+    color: #ffffff;
+    background: var(--color-rojo);
+
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    transition: background 0.2s ease,
+                transform 0.2s ease;
+}
+
+.navegacion a:hover {
+    background: var(--color-rojo-hover);
+    transform: translateY(-2px);
+}
+
+.navegacion a.activo {
+    background: var(--color-rojo-hover);
+}
+
+
+/* ==========================================
+   3. CONTENEDOR GENERAL
+   (se sigue usando en la sección de publicaciones)
+========================================== */
+
+.contenedor {
+    width: 90%;
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+}
+
+
+/* ==========================================
+   4. PRESENTACIÓN DE AVISOS
+   Centrada, sin el contenedor interno
+========================================== */
+
+/* "main .presentacion" tiene más prioridad que la regla de styles.css,
+   así que estos valores siempre ganan */
+main .presentacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 90%;
+    max-width: var(--ancho-maximo);
+
+    /* Sin altura forzada: la sección mide solo lo que ocupa su texto */
+    min-height: 0;
+    height: auto;
+
+    /* Espacios (ajusta estos números si lo quieres más pegado o más separado) */
+    margin: 0 auto 15px;
+    padding: 35px 25px 15px;
+
+    text-align: center;
+
+    /* Anula solo la caja que viene de styles.css */
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* Quita el espacio que styles.css pueda dejar arriba de las publicaciones */
+main .seccion-publicaciones {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.etiqueta-superior {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: var(--color-vino);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.presentacion h1 {
+    margin-bottom: 15px;
+
+    color: var(--color-texto);
+
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.presentacion p {
+    max-width: 650px;
+    margin: 0 auto;
+
+    color: var(--color-gris);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   5. SECCIÓN DE PUBLICACIONES
+========================================== */
+
+.seccion-publicaciones {
+    width: 90%;
+    max-width: var(--ancho-maximo);
+
+    margin: 0 auto 75px;
+}
+
+.titulo-seccion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 28px;
+}
+
+.subtitulo {
+    display: inline-block;
+    margin-bottom: 5px;
+
+    color: var(--color-vino);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.titulo-seccion h2 {
+    color: var(--color-texto);
+
+    font-size: clamp(25px, 3vw, 34px);
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+}
+
+
+/* CUADRÍCULA DE PUBLICACIONES */
+
+.lista-avisos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 28px;
+}
+
+
+/* ==========================================
+   6. TARJETAS DE AVISOS (ESTILO INSTAGRAM)
+========================================== */
+
+.tarjeta-aviso {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+
+    background: #ffffff;
+    border: 1px solid var(--color-borde);
+    border-radius: 20px;
+
+    box-shadow: var(--sombra);
+
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.tarjeta-aviso:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+}
+
+
+/* CABECERA: avatar + nombre + fecha */
+
+.aviso-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 16px;
+}
+
+.aviso-avatar {
+    flex-shrink: 0;
+
+    width: 44px;
+    height: 44px;
+    padding: 2px;
+
+    background: linear-gradient(
+        45deg,
+        var(--color-dorado) 0%,
+        var(--color-rojo) 55%,
+        var(--color-vino) 100%
+    );
+    border-radius: 50%;
+}
+
+.aviso-avatar img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    background: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+}
+
+.aviso-autor {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+
+    line-height: 1.3;
+}
+
+.aviso-autor strong {
+    color: var(--color-texto);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.aviso-autor .fecha {
+    color: var(--color-gris);
+    font-size: 12px;
+}
+
+.aviso-fijado {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+
+/* AVISO DESTACADO */
+
+.tarjeta-aviso.destacado {
+    border: 2px solid var(--color-dorado);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.22);
+}
+
+
+/* ==========================================
+   7. IMAGEN DEL AVISO (CUADRADA, COMO INSTAGRAM)
+========================================== */
+
+.imagen-aviso {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+    object-position: center;
+
+    background: #eeeeee;
+
+    transition: transform 0.4s ease;
+}
+
+.aviso-media {
+    overflow: hidden;
+}
+
+.aviso-media-boton {
+    display: block;
+
+    width: 100%;
+    padding: 0;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+}
+
+.tarjeta-aviso:hover .imagen-aviso {
+    transform: scale(1.04);
+}
+
+/* Cuando el aviso no tiene imagen */
+.aviso-sin-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    background: linear-gradient(
+        135deg,
+        var(--color-rojo) 0%,
+        var(--color-vino) 100%
+    );
+}
+
+.aviso-sin-imagen img {
+    width: 90px;
+    height: 90px;
+
+    object-fit: contain;
+
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+
+/* ==========================================
+   8. CONTENIDO DE LA PUBLICACIÓN
+========================================== */
+
+.contenido-aviso {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    padding: 16px 18px 22px;
+}
+
+.metadatos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-bottom: 12px;
+}
+
+
+/* ETIQUETAS DE IMPORTANCIA */
+
+.etiqueta {
+    display: inline-block;
+    padding: 5px 10px;
+
+    color: var(--color-vino);
+    background: #fff0f1;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.etiqueta.normal {
+    color: var(--color-vino);
+    background: #fff0f1;
+}
+
+.etiqueta.media {
+    color: #735400;
+    background: #fff2c9;
+}
+
+.etiqueta.alta {
+    color: #9b4200;
+    background: #ffeadb;
+}
+
+.etiqueta.urgente {
+    color: #ffffff;
+    background: var(--color-rojo-hover);
+}
+
+.etiqueta.destacado-etiqueta {
+    color: #5a4300;
+    background: #fbeaa6;
+}
+
+
+/* FECHA */
+
+.fecha {
+    color: var(--color-gris);
+    font-size: 11px;
+}
+
+
+/* TÍTULO */
+
+.contenido-aviso h2 {
+    margin-bottom: 8px;
+
+    color: var(--color-texto);
+
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+
+/* DESCRIPCIÓN */
+
+.descripcion-aviso {
+    margin-bottom: 6px;
+
+    color: #444444;
+    font-size: 14px;
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.descripcion-aviso.colapsada {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.boton-ver-mas {
+    align-self: flex-start;
+
+    padding: 0;
+
+    color: var(--color-gris);
+    background: none;
+    border: none;
+
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.boton-ver-mas:hover {
+    color: var(--color-vino);
+}
+
+
+/* ==========================================
+   9. MENSAJES Y CARGA
+========================================== */
+
+.mensaje-cargando {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    grid-column: 1 / -1;
+
+    min-height: 180px;
+    padding: 30px;
+
+    color: var(--color-gris);
+    text-align: center;
+
+    background: var(--color-fondo-suave);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+}
+
+.indicador-carga {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 15px;
+
+    border: 3px solid #eeeeee;
+    border-top-color: var(--color-rojo);
+    border-radius: 50%;
+
+    animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* MENSAJE CUANDO NO HAY AVISOS */
+
+.mensaje-avisos {
+    margin-top: 20px;
+    padding: 25px;
+
+    color: var(--color-gris);
+    background: var(--color-fondo-suave);
+
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+
+    font-size: 14px;
+    text-align: center;
+}
+
+.mensaje-avisos[hidden] {
+    display: none;
+}
+
+
+/* ==========================================
+   10. PIE DE PÁGINA
+========================================== */
+
+.pie-pagina {
+    margin-top: 60px;
+    padding: 0;
+
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        var(--color-rojo) 0%,
+        var(--color-vino) 100%
+    );
+
+    border-top: 5px solid #292929;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.pie-contenido {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 28px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pie-logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.pie-contenido p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+}
+
+.pie-contenido a {
+    display: inline-block;
+    padding: 9px 15px;
+
+    color: var(--color-vino);
+    background: #ffffff;
+
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 800;
+
+    transition: background 0.2s ease,
+                transform 0.2s ease;
+}
+
+.pie-contenido a:hover {
+    background: #eeeeee;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   11. DISEÑO RESPONSIVO
+========================================== */
+
+@media (max-width: 1000px) {
+    .encabezado {
+        gap: 15px;
+        padding: 12px 4%;
+    }
+
+    .navegacion {
+        gap: 6px;
+    }
+
+    .navegacion a {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    .lista-avisos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+}
+
+@media (max-width: 760px) {
+    .encabezado {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px 5%;
+    }
+
+    .logo {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navegacion {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navegacion a {
+        padding: 8px 13px;
+    }
+
+    main .presentacion {
+        margin: 0 auto 10px;
+        padding: 25px 20px 10px;
+    }
+
+    .seccion-publicaciones {
+        margin-bottom: 45px;
+    }
+
+    .pie-pagina {
+        margin-top: 40px;
+    }
+
+    .pie-contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 520px) {
+    .contenedor {
+        width: 92%;
+    }
+
+    main .presentacion {
+        width: 92%;
+        padding: 25px 20px 10px;
+    }
+
+    .presentacion h1 {
+        font-size: 32px;
+    }
+
+    .presentacion p {
+        font-size: 13px;
+    }
+
+    .seccion-publicaciones {
+        width: 92%;
+    }
+
+    .titulo-seccion {
+        margin-bottom: 20px;
+    }
+
+    .lista-avisos {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .contenido-aviso {
+        padding: 15px 16px 20px;
+    }
+
+    .contenido-aviso h2 {
+        font-size: 17px;
+    }
+
+    .pie-contenido {
+        gap: 15px;
+    }
+}
+
+
+/* ==========================================
+   12. ACCESIBILIDAD
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ==========================================
+   13. VISOR DE PUBLICACIÓN (ESTILO INSTAGRAM)
+========================================== */
+
+.visor-aviso {
+    width: min(94vw, 1000px);
+    height: min(88vh, 680px);
+    max-width: none;
+    max-height: none;
+    margin: auto;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #ffffff;
+    border: none;
+    border-radius: 14px;
+}
+
+.visor-aviso::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.visor-cerrar {
+    position: fixed;
+    top: 12px;
+    right: 22px;
+    z-index: 5;
+
+    width: 42px;
+    height: 42px;
+
+    color: #ffffff;
+    background: none;
+    border: none;
+
+    font-size: 38px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.visor-cerrar:hover {
+    opacity: 0.75;
+}
+
+.visor-contenido {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr);
+
+    height: 100%;
+}
+
+.visor-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 0;
+    overflow: hidden;
+
+    background: #000000;
+}
+
+.visor-imagen img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.visor-panel {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    min-height: 0;
+
+    background: #ffffff;
+}
+
+.visor-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 16px;
+
+    border-bottom: 1px solid var(--color-borde);
+}
+
+/* Tipografía del visor */
+.visor-aviso {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+.visor-cabecera .aviso-autor strong {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.visor-cuerpo {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+
+    padding: 24px 26px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #d9d9d9 transparent;
+}
+
+.visor-cuerpo .etiqueta {
+    margin-bottom: 14px;
+
+    font-family: inherit;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Título */
+.visor-cuerpo h2 {
+    margin-bottom: 18px;
+
+    color: var(--color-texto);
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.3px;
+    overflow-wrap: anywhere;
+}
+
+/* Línea de color debajo del título */
+.visor-cuerpo h2::after {
+    content: "";
+
+    display: block;
+
+    width: 52px;
+    height: 4px;
+    margin-top: 14px;
+
+    background: linear-gradient(
+        90deg,
+        var(--color-rojo) 0%,
+        var(--color-vino) 100%
+    );
+    border-radius: 4px;
+}
+
+/* Descripción */
+.visor-descripcion {
+    color: #4a4a4a;
+
+    font-size: 14.5px;
+    font-weight: 400;
+    line-height: 1.8;
+
+    overflow-wrap: anywhere;
+}
+
+.visor-descripcion p {
+    margin-bottom: 14px;
+}
+
+.visor-descripcion p:last-child {
+    margin-bottom: 0;
+}
+
+/* Lista (renglones que empiezan con "-") */
+.visor-lista {
+    list-style: none;
+
+    margin: 4px 0 18px;
+    padding: 14px 16px;
+
+    background: var(--color-fondo-suave);
+    border-radius: 12px;
+}
+
+.visor-lista li {
+    position: relative;
+
+    padding-left: 30px;
+    margin-bottom: 8px;
+
+    color: var(--color-texto);
+    font-weight: 500;
+}
+
+.visor-lista li:last-child {
+    margin-bottom: 0;
+}
+
+.visor-lista li::before {
+    content: "✓";
+
+    position: absolute;
+    top: 3px;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 19px;
+    height: 19px;
+
+    color: #ffffff;
+    background: linear-gradient(
+        145deg,
+        var(--color-rojo) 0%,
+        var(--color-vino) 100%
+    );
+    border-radius: 50%;
+
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+.visor-pie {
+    padding: 14px 26px;
+
+    color: var(--color-gris);
+    font-weight: 500;
+    border-top: 1px solid var(--color-borde);
+
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+    .visor-aviso {
+        height: auto;
+        max-height: 92vh;
+        overflow-y: auto;
+    }
+
+    .visor-contenido {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .visor-imagen,
+    .visor-imagen img {
+        height: auto;
+        max-height: 55vh;
+    }
+
+    .visor-cuerpo {
+        overflow-y: visible;
+    }
+}
+
+
+/* ==========================================
+   ENCABEZADO: NORMAL ARRIBA, SOLO BOTONES AL BAJAR
+   Pegar AL FINAL de styles.css (y de cualquier
+   otro css que vuelva a definir .encabezado).
+   La clase "compacto" la pone encabezado.js
+   cuando se hace scroll hacia abajo.
+========================================== */
+
+/* Transiciones suaves (el tamaño del encabezado NO cambia,
+   así el contenido no "salta" al hacer scroll) */
+.encabezado {
+    transition: background 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.encabezado .logo {
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease;
+}
+
+.menu-principal a {
+    transition: background 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.3s ease;
+}
+
+.boton-login {
+    transition: background 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+/* ---- Con scroll hacia abajo: se esconde la barra y el logo ---- */
+
+.encabezado.compacto {
+    background: transparent;
+    border-bottom-color: transparent;
+    box-shadow: none;
+
+    /* La barra deja pasar los clics; solo los botones los reciben */
+    pointer-events: none;
+}
+
+.encabezado.compacto .logo {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.encabezado.compacto .menu-principal,
+.encabezado.compacto .boton-login,
+.encabezado.compacto .menu-toggle {
+    pointer-events: auto;
+}
+
+/* Sombra para que los botones se lean sobre cualquier imagen */
+.encabezado.compacto .menu-principal a {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.encabezado.compacto .boton-login {
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.encabezado.compacto .boton-login:hover {
+    background: #f0f0f0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .encabezado,
+    .encabezado .logo,
+    .menu-principal a,
+    .boton-login {
+        transition: none;
+    }
+}
+
+
+/* ==========================================
+   PIE DE PÁGINA: SOLO BOTONES + BARRA NEGRA
+   Pegar AL FINAL de styles.css (y de cualquier
+   otro css que vuelva a definir .pie-pagina).
+   Se quita el fondo rojo y el texto
+   "Síguenos y contáctanos"; quedan los botones
+   de redes y la barra negra del copyright.
+========================================== */
+
+.pie-pagina {
+    background: transparent;
+    border-top: none;
+    box-shadow: none;
+}
+
+/* Se quita la etiqueta "Síguenos y contáctanos" */
+.footer-etiqueta {
+    display: none;
+}
+
+.footer-redes {
+    padding: 35px 0 30px;
+}
