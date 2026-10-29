@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | MARCAF Carnes Selectas</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/productos.css">
+</head>
+<body>
+
+    <header class="encabezado">
+        <a href="../index.html" class="logo">
+            <img src="../images/Logo.jpg" alt="MARCAF">
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+        <nav class="menu-principal" id="menuPrincipal">
+            <a href="../index.html">Inicio</a>
+            <a href="productos.html" class="activo">Productos</a>
+            <a href="avisos.html">Avisos</a>
+            <a href="bolsa-trabajo.html">Bolsa de trabajo</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <a href="../admin-login.html" class="boton-login">Login</a>
+    </header>
+
+    <main class="catalogo">
+        <section class="catalogo-intro">
+            <span class="etiqueta">MARCAF · Carnes selectas</span>
+            <h1>Nuestros productos</h1>
+            <p>Conoce nuestros productos y descubre recetas para preparar en casa.</p>
+        </section>
+
+        <div class="filtros-productos" aria-label="Filtrar productos"> 
+    <!-- BUSCADOR DE PRODUCTOS -->
+
+    <div class="buscador-productos">
+            <input
+            type="search"
+            id="buscarProducto"
+            placeholder="Busca una carne, pollo, bistec..."
+            aria-label="Buscar productos"
+        >
+        <button type="button" id="botonBuscar">Buscar</button>
+    </div>
+
+            <button class="filtro activo" data-categoria="todos">Todos</button>
+            <button class="filtro" data-categoria="res">Res</button>
+            <button class="filtro" data-categoria="cerdo">Cerdo</button>
+            <button class="filtro" data-categoria="pollo">Pollo</button>
+        </div>
+
+        <section class="productos-grid" id="productosGrid"
+                 aria-label="Catálogo de productos"></section>
+    </main>
+
+    <!-- Ventana con información del producto -->
+    <dialog class="ventana-producto" id="ventanaProducto">
+        <button class="cerrar-ventana" id="cerrarProducto"
+                aria-label="Cerrar">×</button>
+        <div id="detalleProducto"></div>
+    </dialog>
+
+    <!-- Ventana con la receta -->
+    <dialog class="ventana-producto ventana-receta" id="ventanaReceta">
+        <button class="cerrar-ventana" id="cerrarReceta"
+                aria-label="Cerrar">×</button>
+        <div id="detalleReceta"></div>
+    </dialog>
+
+    <!-- PIE DE PÁGINA -->
+<footer class="pie-pagina">
+    <div class="footer-contenido">
+
+        <div class="footer-redes">
+            <span class="footer-etiqueta">Síguenos y contáctanos</span>
+
+            <div class="redes-sociales">
+                <a href="https://www.facebook.com/marcafcarnesselectas/"
+                   class="red-social"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <span class="red-social-icono">f</span>
+                    <span class="red-social-texto">Facebook</span>
+                </a>
+
+                <a href="https://www.instagram.com/marcaf_carnes_selectas/"
+                   class="red-social"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <span class="red-social-icono">◎</span>
+                    <span class="red-social-texto">Instagram</span>
+                </a>
+
+                <a href="https://www.tiktok.com/@marcaf.carnes.sel?is_from_webapp=1&sender_device=pc/"
+                   class="red-social"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <span class="red-social-icono">♪</span>
+                    <span class="red-social-texto">TikTok</span>
+                </a>
+
+                <a href="https://wa.me/527751358023"
+                   class="red-social"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <span class="red-social-icono">☏</span>
+                    <span class="red-social-texto">WhatsApp</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        <p>
+            © <span id="anio-footer"></span> MARCAF Carnes Selectas.
+            Todos los derechos reservados.
+        </p>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/productos.js"></script>
+
+    <script>
+        document.getElementById("anio-footer").textContent =
+            new Date().getFullYear();
+
+        const toggle = document.getElementById("menuToggle");
+        const menu = document.getElementById("menuPrincipal");
+
+        toggle.addEventListener("click", () => {
+            const abierto = menu.classList.toggle("abierto");
+            toggle.setAttribute("aria-expanded", abierto);
+        });
+    </script>
+</body>
+</html>
