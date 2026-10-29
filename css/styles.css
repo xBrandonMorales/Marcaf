@@ -233,7 +233,7 @@ button {
     max-width: 540px;
     margin-bottom: 25px;
 
-    color: var(--color-gris);
+    color: var(--color-gris-fuerte);
     font-size: 15px;
     line-height: 1.8;
 }
@@ -320,6 +320,7 @@ button {
     line-height: 1.25;
     letter-spacing: -0.5px;
     color: #e1e1e1;
+    
 }
 
 
@@ -355,6 +356,7 @@ button {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
 }
+
 
 
 /* TARJETAS */
@@ -459,6 +461,7 @@ button {
 .seccion-conocenos {
     width: 90%;
     max-width: var(--ancho-maximo);
+    margin: center;
     
 
     margin: 0 auto 75px;
@@ -847,10 +850,8 @@ button {
 /* Línea color carbón y derechos reservados */
 .copyright {
     width: 100%;
-    padding: 23px 15px;
+    padding: 10px 15px;
 
-    background: #292929;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
 
     color: rgba(255, 255, 255, 0.85);
     text-align: center;
@@ -1003,12 +1004,12 @@ button {
 
 
 /* ==========================================
-   PIE DE PÁGINA: SOLO BOTONES + BARRA NEGRA
+   PIE DE Paagina: SOLO BOTONES + BARRA NEGRA
    Pegar AL FINAL de styles.css (y de cualquier
    otro css que vuelva a definir .pie-pagina).
    Se quita el fondo rojo y el texto
-   "Síguenos y contáctanos"; quedan los botones
-   de redes y la barra negra del copyright.
+   "Síguenos y contáctanos"; quedando solo 
+   los botoes y la barra negra del copyright.
 ========================================== */
 
 .pie-pagina {
@@ -1024,4 +1025,323 @@ button {
 
 .footer-redes {
     padding: 35px 0 30px;
+}
+
+
+
+/* ==========================================
+   TARJETAS DE "PUBLICACIONES RECIENTES"
+   Pegar AL FINAL de styles.css. Sobrescribe el
+   diseño anterior de las tarjetas (no hace falta
+   borrar nada ni tocar el JS).
+========================================== */
+
+/* Cuadrícula: ahora también se adapta a pantallas pequeñas */
+.publicaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    align-items: stretch;
+}
+
+/* ---------- TARJETA ---------- */
+
+.tarjeta-publicacion {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    overflow: hidden;
+
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+
+    background: #ffffff;
+    border: none;
+    border-radius: 22px;
+
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-publicacion:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 44px rgba(0, 0, 0, 0.38);
+}
+
+
+/* ---------- IMAGEN (cuadrada, como una publicación) ---------- */
+
+.imagen-publicacion {
+    display: block;
+
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+    object-position: center;
+
+    background: #eeeeee;
+
+    transition: transform 0.5s ease;
+}
+
+.tarjeta-publicacion:hover .imagen-publicacion {
+    transform: scale(1.04);
+}
+
+
+/* ---------- CONTENIDO ---------- */
+
+.publicacion-contenido {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    padding: 24px 26px 26px;
+}
+
+/* Etiqueta (AVISO, NOVEDADES...) */
+.etiqueta-publicacion {
+    align-self: flex-start;
+
+    margin-bottom: 12px;
+    padding: 5px 12px;
+
+    color: var(--color-vino);
+    background: #fff0f1;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Fecha */
+.fecha-publicacion {
+    margin-bottom: 8px;
+
+    color: #8a8a8a;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Título (máximo 2 renglones) */
+.publicacion-contenido h3 {
+    margin-bottom: 12px;
+
+    color: var(--color-texto);
+
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.2px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Descripción (máximo 3 renglones, así todas las tarjetas miden lo mismo) */
+.publicacion-contenido > p:not(.fecha-publicacion) {
+    margin-bottom: 22px;
+
+    color: #5a5a5a;
+
+    font-size: 14px;
+    line-height: 1.75;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Botón "Ver más", siempre al fondo de la tarjeta */
+.enlace-publicacion {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    align-self: flex-start;
+    margin-top: auto;
+
+    padding: 10px 20px;
+
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        var(--color-rojo) 0%,
+        var(--color-vino) 100%
+    );
+
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.enlace-publicacion:hover {
+    color: #ffffff;
+
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(151, 0, 25, 0.35);
+}
+
+
+/* ---------- RESPONSIVO ---------- */
+
+@media (max-width: 1000px) {
+    .publicaciones-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+}
+
+@media (max-width: 640px) {
+    .publicaciones-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .publicacion-contenido {
+        padding: 20px 20px 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tarjeta-publicacion,
+    .imagen-publicacion,
+    .enlace-publicacion {
+        transition: none;
+    }
+
+    .tarjeta-publicacion:hover,
+    .tarjeta-publicacion:hover .imagen-publicacion,
+    .enlace-publicacion:hover {
+        transform: none;
+    }
+}
+
+
+
+/* ==========================================
+   BOTONES DE REDES SOCIALES (NUEVO DISEÑO)
+   Pegar AL FINAL de styles.css. Sobrescribe el
+   diseño anterior de .red-social.
+   Cada red toma su color de marca al pasar el
+   mouse, y el icono da una vuelta completa.
+========================================== */
+
+.red-social {
+    /* Color de marca (cada red lo cambia más abajo) */
+    --marca: #970019;
+    --marca-fondo: linear-gradient(145deg, #ed454d, #970019);
+
+    gap: 14px;
+
+    min-height: 58px;
+    padding: 8px 28px 8px 8px;
+
+    color: #292929;
+    background: #ffffff;
+    border: none;
+    border-radius: 50px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Colores de cada red (se detectan por el enlace) */
+.red-social[href*="facebook.com"] {
+    --marca: #1877f2;
+    --marca-fondo: #1877f2;
+}
+
+.red-social[href*="instagram.com"] {
+    --marca: #e1306c;
+    --marca-fondo: linear-gradient(45deg, #f9a825 0%, #ee2a7b 50%, #6228d7 100%);
+}
+
+.red-social[href*="tiktok.com"] {
+    --marca: #111111;
+    --marca-fondo: #111111;
+}
+
+.red-social[href*="wa.me"] {
+    --marca: #25d366;
+    --marca-fondo: #25d366;
+}
+
+/* Al pasar el mouse: el botón se llena con el color de la red */
+.red-social:hover {
+    color: #ffffff;
+    background: var(--marca-fondo);
+    border-color: transparent;
+
+    transform: translateY(-6px) scale(1.04);
+
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.38);
+}
+
+.red-social:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- ICONO ---------- */
+
+.red-social-icono {
+    width: 42px;
+    height: 42px;
+
+    color: #ffffff;
+    background: var(--marca-fondo);
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    transition:
+        transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.red-social-icono i {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* Al pasar el mouse: el icono da una vuelta y se vuelve blanco */
+.red-social:hover .red-social-icono {
+    color: var(--marca);
+    background: #ffffff;
+    border-radius: 50%;
+
+    transform: rotate(360deg) scale(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .red-social,
+    .red-social-icono {
+        transition: none;
+    }
+
+    .red-social:hover,
+    .red-social:hover .red-social-icono {
+        transform: none;
+    }
 }

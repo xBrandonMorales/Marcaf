@@ -1,35 +1,19 @@
 /* ==========================================
-   1. CONFIGURACIÓN GENERAL
-   Estilo MARCAF Carnes Selectas
+   AVISOS MARCAF
+   Solo estilos propios de la página de avisos.
+   Todo lo demás (encabezado, menú, logo, pie de
+   página, fondo, botones de redes) viene de
+   styles.css.
 ========================================== */
 
+/* En avisos el contenido es más angosto que en el inicio
+   (styles.css usa 1800px) */
 :root {
-    --color-rojo: #ed454d;
-    --color-rojo-hover: #cf2634;
-    --color-vino: #970019;
-    --color-texto: #202020;
-    --color-gris: #686868;
-    --color-fondo: #ffffff;
-    --color-fondo-suave: #f5f5f5;
-    --color-borde: #e7e7e7;
-    --color-dorado: #D4AF37;
-
-    --sombra: 0 8px 25px rgba(0, 0, 0, 0.05);
-    --radio: 16px;
     --ancho-maximo: 1400px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 100px;
-}
-
+/* Fuente, color y fondo propios de esta página
+   (si se ocupa el fonoo el style.css se borra este apartado) */
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--color-texto);
@@ -37,119 +21,9 @@ body {
     line-height: 1.6;
 }
 
-img {
-    max-width: 100%;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    font: inherit;
-}
-
 
 /* ==========================================
-   2. ENCABEZADO
-========================================== */
-
-.encabezado {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-
-    min-height: 85px;
-    padding: 12px 5%;
-
-    background: rgba(255, 255, 255, 0.97);
-    border-bottom: 1px solid var(--color-borde);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-}
-
-
-/* LOGOTIPO */
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-
-    color: var(--color-vino);
-    font-size: 16px;
-    font-weight: 800;
-    line-height: 1.15;
-}
-
-.logo-texto {
-    display: flex;
-    flex-direction: column;
-}
-
-.logo img {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-}
-
-.logo-principal {
-    font-size: 23px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-}
-
-.logo-secundario {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-}
-
-
-/* MENÚ PRINCIPAL */
-
-.navegacion {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 9px;
-}
-
-.navegacion a {
-    display: inline-block;
-    padding: 9px 16px;
-
-    color: #ffffff;
-    background: var(--color-rojo);
-
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: 700;
-    white-space: nowrap;
-
-    transition: background 0.2s ease,
-                transform 0.2s ease;
-}
-
-.navegacion a:hover {
-    background: var(--color-rojo-hover);
-    transform: translateY(-2px);
-}
-
-.navegacion a.activo {
-    background: var(--color-rojo-hover);
-}
-
-
-/* ==========================================
-   3. CONTENEDOR GENERAL
+   1. CONTENEDOR GENERAL
    (se sigue usando en la sección de publicaciones)
 ========================================== */
 
@@ -161,7 +35,7 @@ button {
 
 
 /* ==========================================
-   4. PRESENTACIÓN DE AVISOS
+   2. PRESENTACIÓN DE AVISOS
    Centrada, sin el contenedor interno
 ========================================== */
 
@@ -233,15 +107,8 @@ main .seccion-publicaciones {
 
 
 /* ==========================================
-   5. SECCIÓN DE PUBLICACIONES
+   3. SECCIÓN DE PUBLICACIONES
 ========================================== */
-
-.seccion-publicaciones {
-    width: 90%;
-    max-width: var(--ancho-maximo);
-
-    margin: 0 auto 75px;
-}
 
 .titulo-seccion {
     display: flex;
@@ -283,7 +150,7 @@ main .seccion-publicaciones {
 
 
 /* ==========================================
-   6. TARJETAS DE AVISOS (ESTILO INSTAGRAM)
+   4. TARJETAS DE AVISOS (ESTILO INSTAGRAM)
 ========================================== */
 
 .tarjeta-aviso {
@@ -381,7 +248,7 @@ main .seccion-publicaciones {
 
 
 /* ==========================================
-   7. IMAGEN DEL AVISO (CUADRADA, COMO INSTAGRAM)
+   5. IMAGEN DEL AVISO (CUADRADA, COMO INSTAGRAM)
 ========================================== */
 
 .imagen-aviso {
@@ -447,7 +314,7 @@ main .seccion-publicaciones {
 
 
 /* ==========================================
-   8. CONTENIDO DE LA PUBLICACIÓN
+   6. CONTENIDO DE LA PUBLICACIÓN
 ========================================== */
 
 .contenido-aviso {
@@ -572,7 +439,7 @@ main .seccion-publicaciones {
 
 
 /* ==========================================
-   9. MENSAJES Y CARGA
+   7. MENSAJES Y CARGA
 ========================================== */
 
 .mensaje-cargando {
@@ -635,89 +502,10 @@ main .seccion-publicaciones {
 
 
 /* ==========================================
-   10. PIE DE PÁGINA
-========================================== */
-
-.pie-pagina {
-    margin-top: 60px;
-    padding: 0;
-
-    color: #ffffff;
-    background: linear-gradient(
-        135deg,
-        var(--color-rojo) 0%,
-        var(--color-vino) 100%
-    );
-
-    border-top: 5px solid #292929;
-    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.08);
-}
-
-.pie-contenido {
-    width: 90%;
-    max-width: 1200px;
-
-    margin: 0 auto;
-    padding: 28px 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.pie-logo {
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.pie-contenido p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 12px;
-}
-
-.pie-contenido a {
-    display: inline-block;
-    padding: 9px 15px;
-
-    color: var(--color-vino);
-    background: #ffffff;
-
-    border-radius: 25px;
-    font-size: 12px;
-    font-weight: 800;
-
-    transition: background 0.2s ease,
-                transform 0.2s ease;
-}
-
-.pie-contenido a:hover {
-    background: #eeeeee;
-    transform: translateY(-2px);
-}
-
-
-/* ==========================================
-   11. DISEÑO RESPONSIVO
+   8. DISEÑO RESPONSIVO
 ========================================== */
 
 @media (max-width: 1000px) {
-    .encabezado {
-        gap: 15px;
-        padding: 12px 4%;
-    }
-
-    .navegacion {
-        gap: 6px;
-    }
-
-    .navegacion a {
-        padding: 8px 12px;
-        font-size: 11px;
-    }
-
     .lista-avisos {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 22px;
@@ -725,26 +513,6 @@ main .seccion-publicaciones {
 }
 
 @media (max-width: 760px) {
-    .encabezado {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 15px 5%;
-    }
-
-    .logo {
-        justify-content: center;
-        width: 100%;
-    }
-
-    .navegacion {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .navegacion a {
-        padding: 8px 13px;
-    }
-
     main .presentacion {
         margin: 0 auto 10px;
         padding: 25px 20px 10px;
@@ -752,15 +520,6 @@ main .seccion-publicaciones {
 
     .seccion-publicaciones {
         margin-bottom: 45px;
-    }
-
-    .pie-pagina {
-        margin-top: 40px;
-    }
-
-    .pie-contenido {
-        flex-direction: column;
-        text-align: center;
     }
 }
 
@@ -802,15 +561,11 @@ main .seccion-publicaciones {
     .contenido-aviso h2 {
         font-size: 17px;
     }
-
-    .pie-contenido {
-        gap: 15px;
-    }
 }
 
 
 /* ==========================================
-   12. ACCESIBILIDAD
+   9. ACCESIBILIDAD
 ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -825,7 +580,7 @@ main .seccion-publicaciones {
 
 
 /* ==========================================
-   13. VISOR DE PUBLICACIÓN (ESTILO INSTAGRAM)
+   10. VISOR DE PUBLICACIÓN (ESTILO INSTAGRAM)
 ========================================== */
 
 .visor-aviso {
@@ -1081,108 +836,4 @@ main .seccion-publicaciones {
     .visor-cuerpo {
         overflow-y: visible;
     }
-}
-
-
-/* ==========================================
-   ENCABEZADO: NORMAL ARRIBA, SOLO BOTONES AL BAJAR
-   Pegar AL FINAL de styles.css (y de cualquier
-   otro css que vuelva a definir .encabezado).
-   La clase "compacto" la pone encabezado.js
-   cuando se hace scroll hacia abajo.
-========================================== */
-
-/* Transiciones suaves (el tamaño del encabezado NO cambia,
-   así el contenido no "salta" al hacer scroll) */
-.encabezado {
-    transition: background 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
-}
-
-.encabezado .logo {
-    transition: opacity 0.3s ease,
-                visibility 0.3s ease;
-}
-
-.menu-principal a {
-    transition: background 0.2s ease,
-                transform 0.2s ease,
-                box-shadow 0.3s ease;
-}
-
-.boton-login {
-    transition: background 0.3s ease,
-                box-shadow 0.3s ease;
-}
-
-
-/* ---- Con scroll hacia abajo: se esconde la barra y el logo ---- */
-
-.encabezado.compacto {
-    background: transparent;
-    border-bottom-color: transparent;
-    box-shadow: none;
-
-    /* La barra deja pasar los clics; solo los botones los reciben */
-    pointer-events: none;
-}
-
-.encabezado.compacto .logo {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.encabezado.compacto .menu-principal,
-.encabezado.compacto .boton-login,
-.encabezado.compacto .menu-toggle {
-    pointer-events: auto;
-}
-
-/* Sombra para que los botones se lean sobre cualquier imagen */
-.encabezado.compacto .menu-principal a {
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-}
-
-.encabezado.compacto .boton-login {
-    background: #ffffff;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-}
-
-.encabezado.compacto .boton-login:hover {
-    background: #f0f0f0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .encabezado,
-    .encabezado .logo,
-    .menu-principal a,
-    .boton-login {
-        transition: none;
-    }
-}
-
-
-/* ==========================================
-   PIE DE PÁGINA: SOLO BOTONES + BARRA NEGRA
-   Pegar AL FINAL de styles.css (y de cualquier
-   otro css que vuelva a definir .pie-pagina).
-   Se quita el fondo rojo y el texto
-   "Síguenos y contáctanos"; quedan los botones
-   de redes y la barra negra del copyright.
-========================================== */
-
-.pie-pagina {
-    background: transparent;
-    border-top: none;
-    box-shadow: none;
-}
-
-/* Se quita la etiqueta "Síguenos y contáctanos" */
-.footer-etiqueta {
-    display: none;
-}
-
-.footer-redes {
-    padding: 35px 0 30px;
 }
