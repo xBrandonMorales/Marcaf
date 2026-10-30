@@ -15,7 +15,7 @@
 /* Fuente, color y fondo propios de esta página
    (si se ocupa el fonoo el style.css se borra este apartado) */
 body {
-    background-image: url("../images/Fondos-06.jpg");
+    background-image: url("../images/Nuevo.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -89,21 +89,23 @@ main .seccion-publicaciones {
 .presentacion h1 {
     margin-bottom: 15px;
 
-    color: var(--color-negro);
+    color: var(--color-blanco);
 
     font-size: clamp(32px, 4vw, 48px);
     font-weight: 800;
     line-height: 1.15;
     letter-spacing: -1px;
+    color:#eeeeee;
 }
 
 .presentacion p {
     max-width: 650px;
     margin: 0 auto;
 
-    color: var(--color-negro);
+    color: var(--color-blanco);
     font-size: 16px;
     line-height: 1.8;
+    color:#eeeeee;
 }
 
 
@@ -122,21 +124,25 @@ main .seccion-publicaciones {
 
 .subtitulo {
     display: inline-block;
-    margin-bottom: 5px;
-
-    color: var(--color-vino);
-
-    font-size: 11px;
+    margin-bottom: 10px;
+    padding: 6px 13px;
+    color: #ff4b55;
+    background: rgba(145, 31, 16, 0.18);
+    border: 1px solid rgba(237, 69, 77, 0.45);
+    border-radius: 20px;
+    font-size: 13px;
     font-weight: 800;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
+    text-shadow: 0 0 8px rgba(237, 69, 77, 0.35);
 }
 
 .titulo-seccion h2 {
-    color: var(--color-texto);
+    color: var(--color-blanco);
 
     font-size: clamp(25px, 3vw, 34px);
     line-height: 1.25;
     letter-spacing: -0.5px;
+    color:#eeeeee;
 }
 
 
@@ -151,28 +157,52 @@ main .seccion-publicaciones {
 
 
 /* ==========================================
-   4. TARJETAS DE AVISOS (ESTILO INSTAGRAM)
+   4. TARJETAS DE AVISOS (TEMA OSCURO)
+   Paleta: naranja #ff4200, rojo #960000,
+   carbón #111111, gris #d8d8d8
 ========================================== */
 
 .tarjeta-aviso {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-width: 0;
     overflow: hidden;
 
-    background: #ffffff;
-    border: 1px solid var(--color-borde);
-    border-radius: 20px;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
 
-    box-shadow: var(--sombra);
+/* Color de la tarjeta */
 
-    transition: transform 0.25s ease,
-                box-shadow 0.25s ease;
+    background: linear-gradient(160deg, #1f1f1f 0%, #111111 100%);
+    border: 1px solid rgba(216, 216, 216, 0.12);
+    border-radius: 22px;
+
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+/* Franja naranja → rojo arriba */
+.tarjeta-aviso::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+    height: 4px;
+    background: linear-gradient(90deg, #ff4200, #960000);
 }
 
 .tarjeta-aviso:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    border-color: rgba(255, 66, 0, 0.55);
+    box-shadow: 0 0 0 1px rgba(255, 66, 0, 0.35),
+                0 22px 44px rgba(0, 0, 0, 0.7),
+                0 0 30px rgba(255, 66, 0, 0.18);
 }
 
 
@@ -183,23 +213,24 @@ main .seccion-publicaciones {
     align-items: center;
     gap: 12px;
 
-    padding: 14px 16px;
+    padding: 18px 18px 14px;
 }
 
 .aviso-avatar {
     flex-shrink: 0;
 
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
     padding: 2px;
 
     background: linear-gradient(
         45deg,
-        var(--color-dorado) 0%,
-        var(--color-rojo) 55%,
-        var(--color-vino) 100%
+        #ff4200 0%,
+        #960000 100%
     );
     border-radius: 50%;
+
+    box-shadow: 0 0 14px rgba(255, 66, 0, 0.35);
 }
 
 .aviso-avatar img {
@@ -211,7 +242,7 @@ main .seccion-publicaciones {
     object-fit: cover;
 
     background: #ffffff;
-    border: 2px solid #ffffff;
+    border: 2px solid #111111;
     border-radius: 50%;
 }
 
@@ -234,6 +265,17 @@ main .seccion-publicaciones {
     font-size: 12px;
 }
 
+/* Textos claros dentro de la tarjeta (el visor sigue en blanco) */
+.tarjeta-aviso .aviso-autor strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.tarjeta-aviso .aviso-autor .fecha,
+.tarjeta-aviso .metadatos .fecha {
+    color: rgba(216, 216, 216, 0.6);
+}
+
 .aviso-fijado {
     margin-left: auto;
     flex-shrink: 0;
@@ -244,7 +286,62 @@ main .seccion-publicaciones {
 
 .tarjeta-aviso.destacado {
     border: 2px solid var(--color-dorado);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.22);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.28),
+                0 14px 34px rgba(0, 0, 0, 0.6);
+}
+
+.tarjeta-aviso.destacado::before {
+    background: linear-gradient(90deg, var(--color-dorado), #ff4200);
+}
+
+.tarjeta-aviso.destacado:hover {
+    border-color: var(--color-dorado);
+    box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.5),
+                0 22px 44px rgba(0, 0, 0, 0.7),
+                0 0 34px rgba(212, 175, 55, 0.3);
+}
+
+
+/* ETIQUETAS DENTRO DE LA TARJETA */
+
+.tarjeta-aviso .etiqueta {
+    padding: 5px 12px;
+
+    color: #ff4200;
+    background: rgba(255, 66, 0, 0.12);
+    border: 1px solid rgba(255, 66, 0, 0.45);
+
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.tarjeta-aviso .etiqueta.normal {
+    color: #ff4200;
+    background: rgba(255, 66, 0, 0.12);
+}
+
+.tarjeta-aviso .etiqueta.media {
+    color: #f3cf62;
+    background: rgba(212, 175, 55, 0.14);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+.tarjeta-aviso .etiqueta.alta {
+    color: #ff7a3d;
+    background: rgba(255, 122, 61, 0.14);
+    border-color: rgba(255, 122, 61, 0.5);
+}
+
+.tarjeta-aviso .etiqueta.urgente {
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff4200, #960000);
+    border-color: transparent;
+}
+
+.tarjeta-aviso .etiqueta.destacado-etiqueta {
+    color: #111111;
+    background: linear-gradient(135deg, #f3cf62, #D4AF37);
+    border-color: transparent;
 }
 
 
@@ -261,7 +358,7 @@ main .seccion-publicaciones {
     object-fit: cover;
     object-position: center;
 
-    background: #eeeeee;
+    background: #1a1a1a;
 
     transition: transform 0.4s ease;
 }
@@ -323,7 +420,7 @@ main .seccion-publicaciones {
     flex-direction: column;
     flex: 1;
 
-    padding: 16px 18px 22px;
+    padding: 18px 20px 24px;
 }
 
 .metadatos {
@@ -399,6 +496,11 @@ main .seccion-publicaciones {
     overflow-wrap: anywhere;
 }
 
+.tarjeta-aviso .contenido-aviso h2 {
+    color: #ffffff;
+    font-weight: 700;
+}
+
 
 /* DESCRIPCIÓN */
 
@@ -411,6 +513,10 @@ main .seccion-publicaciones {
 
     white-space: pre-wrap;
     overflow-wrap: anywhere;
+}
+
+.tarjeta-aviso .descripcion-aviso {
+    color: #d8d8d8;
 }
 
 .descripcion-aviso.colapsada {
@@ -436,6 +542,14 @@ main .seccion-publicaciones {
 
 .boton-ver-mas:hover {
     color: var(--color-vino);
+}
+
+.tarjeta-aviso .boton-ver-mas {
+    color: #ff4200;
+}
+
+.tarjeta-aviso .boton-ver-mas:hover {
+    color: #ffffff;
 }
 
 
