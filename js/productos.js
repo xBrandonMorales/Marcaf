@@ -1,5 +1,6 @@
 
 let productos = [];
+
 const SUPABASE_URL = "https://rjlletybgreacibxhxug.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqbGxldHliZ3JlYWNpYnhoeHVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMyODA2ODIsImV4cCI6MjEwODg1NjY4Mn0.wFp3s0xtTWUwYy1Ybi96u50935Rfl9gWOleJHn5Fbjg";
 
@@ -19,6 +20,7 @@ const botonBuscar = document.getElementById("botonBuscar");
 
 let categoriaActiva = "todos";
 
+
 // Evita que textos guardados en la base de datos se interpreten como HTML.
 function escaparHTML(valor) {
     return String(valor ?? "").replace(/[&<>"']/g, caracter => ({
@@ -30,6 +32,7 @@ function escaparHTML(valor) {
     })[caracter]);
 }
 
+
 // Convierte una ruta guardada en Supabase a una ruta utilizable.
 // Para las imágenes locales guarda, por ejemplo:
 // images/productos/bistec.jpg
@@ -39,7 +42,7 @@ function obtenerRutaImagen(ruta) {
     if (!valor) return "";
 
     // Permite URLs HTTPS y rutas relativas locales.
-    if (/^https:\/\//i.test(valor)) return valor;
+    if (/^https?:\/\//i.test(valor)) return valor;
 
     if (/^(javascript|data):/i.test(valor) || valor.startsWith("//")) {
         return "";
@@ -50,9 +53,26 @@ function obtenerRutaImagen(ruta) {
     return "../" + valor.replace(/^\.?\//, "");
 }
 
+
+// ==========================================
+// COTIZAR PRODUCTO POR WHATSAPP
+// ==========================================
+
+function cotizarPorWhatsApp(nombreProducto) {
+    const numeroWhatsApp = "527751358023";
+
+    const mensaje = `Hola, me interesa cotizar el producto: ${nombreProducto}. ¿Me podrían compartir el precio y la disponibilidad?`;
+
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank", "noopener,noreferrer");
+}
+
+
 // ==========================================
 // CARGAR PRODUCTOS Y RECETAS DE SUPABASE
 // ==========================================
+
 async function cargarProductos() {
     grid.innerHTML = `
         <p class="mensaje-sin-productos">
@@ -93,6 +113,7 @@ async function cargarProductos() {
         }));
 
         renderizarProductos();
+
     } catch (error) {
         console.error("Error al cargar productos:", error);
 
@@ -105,9 +126,11 @@ async function cargarProductos() {
     }
 }
 
+
 // ==========================================
 // MOSTRAR Y FILTRAR PRODUCTOS
 // ==========================================
+
 function renderizarProductos(
     categoria = categoriaActiva,
     busqueda = campoBusqueda?.value || ""
@@ -162,6 +185,7 @@ function renderizarProductos(
     }).join("");
 }
 
+
 // Buscar con el botón o pulsando Enter.
 function buscarProductos() {
     renderizarProductos(categoriaActiva);
@@ -178,9 +202,11 @@ if (botonBuscar && campoBusqueda) {
     });
 }
 
+
 // ==========================================
 // ABRIR DETALLE DE PRODUCTO
 // ==========================================
+
 function abrirProducto(id) {
     const producto = productos.find(p => String(p.id) === String(id));
     if (!producto) return;
@@ -202,6 +228,7 @@ function abrirProducto(id) {
 
     detalleProducto.innerHTML = `
         <section class="detalle-encabezado">
+
             ${imagen ? `
                 <img src="${escaparHTML(imagen)}"
                      alt="${escaparHTML(producto.nombre)}">
@@ -212,6 +239,23 @@ function abrirProducto(id) {
                 <h2>${escaparHTML(producto.nombre)}</h2>
                 <p>${escaparHTML(producto.descripcion)}</p>
             </div>
+
+        </section>
+
+        <!-- COTIZACIÓN POR WHATSAPP -->
+        <section class="seccion-cotizacion">
+            <h3>¿Te interesa este producto?</h3>
+
+            <p>
+                Solicita información sobre su precio y disponibilidad.
+            </p>
+
+            <button
+                type="button"
+                class="boton-cotizar"
+                id="botonCotizarProducto">
+                Cotizar por WhatsApp
+            </button>
         </section>
 
         <section class="seccion-recetas">
@@ -224,12 +268,22 @@ function abrirProducto(id) {
         </section>
     `;
 
+    // Abrir ventana del producto.
     ventanaProducto.showModal();
+
+    // Conectar botón de cotización con el producto seleccionado.
+    const botonCotizar = document.getElementById("botonCotizarProducto");
+
+    botonCotizar.addEventListener("click", () => {
+        cotizarPorWhatsApp(producto.nombre);
+    });
 }
+
 
 // ==========================================
 // ABRIR RECETA DESDE SUPABASE
 // ==========================================
+
 function abrirReceta(productoId, recetaId) {
     const producto = productos.find(
         p => String(p.id) === String(productoId)
@@ -259,6 +313,7 @@ function abrirReceta(productoId, recetaId) {
             <p>⏱ Tiempo aproximado: ${escaparHTML(receta.tiempo || "No especificado")}</p>
 
             <h3>Ingredientes</h3>
+
             ${ingredientes.length ? `
                 <ul>
                     ${ingredientes.map(item =>
@@ -268,6 +323,7 @@ function abrirReceta(productoId, recetaId) {
             ` : "<p>Ingredientes pendientes de agregar.</p>"}
 
             <h3>Preparación</h3>
+
             ${pasos.length ? `
                 <ol>
                     ${pasos.map(paso =>
@@ -282,6 +338,7 @@ function abrirReceta(productoId, recetaId) {
     ventanaReceta.showModal();
 }
 
+
 // Clic en una tarjeta del catálogo.
 grid.addEventListener("click", event => {
     const tarjeta = event.target.closest("[data-producto]");
@@ -289,6 +346,7 @@ grid.addEventListener("click", event => {
 
     abrirProducto(tarjeta.dataset.producto);
 });
+
 
 // Clic en una receta.
 detalleProducto.addEventListener("click", event => {
@@ -300,6 +358,7 @@ detalleProducto.addEventListener("click", event => {
         tarjeta.dataset.receta
     );
 });
+
 
 // Filtros de categorías.
 document.querySelectorAll(".filtro").forEach(boton => {
@@ -314,6 +373,7 @@ document.querySelectorAll(".filtro").forEach(boton => {
     });
 });
 
+
 // Cerrar ventanas.
 document.getElementById("cerrarProducto")
     .addEventListener("click", () => ventanaProducto.close());
@@ -326,6 +386,7 @@ document.getElementById("cerrarReceta")
         if (event.target === ventana) ventana.close();
     });
 });
+
 
 // Iniciar el catálogo consultando la base de datos.
 cargarProductos();
